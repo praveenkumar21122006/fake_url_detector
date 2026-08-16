@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  urlguard:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATA_DIR=/app/data
+    volumes:
+      - urlguard-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  urlguard-data:
